@@ -43,3 +43,8 @@
   </script>
 </body>
 </html>
+// Faire parler la réponse
+const synthese = window.speechSynthesis;
+const utterance = new SpeechSynthesisUtterance(reponse || "Je ne connais pas encore cette réponse. Tu peux m'apprendre ?");
+utterance.lang = "fr-FR"; // français
+synthese.speak(utterance);
