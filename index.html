@@ -1,114 +1,70 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Mini IA – Sans OpenAI</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f0f8ff; }
-    h1 { color: #333; }
-    input, button { padding: 10px; font-size: 16px; margin-top: 10px; }
-    #reponse { margin-top: 20px; font-weight: bold; }
-  </style>
-</head><style>
-  body {<img src="istockphoto-1492548051-1024x1024.jpg" alt="Logo InfoBot" style="width: 120px; margin-bottom: 20px;">
-
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff;
-    color: #333;
-    text-align: center;
-    padding: 50px;
-  }
-
-  h1 {
-    color: #007acc;
-  }
-
-  input[type="text"] {
-    padding: 10px;
-    width: 60%;
-    border: 2px solid #007acc;
-    border-radius: 10px;
-    font-size: 16px;
-  }
-
-  button {
-    padding: 10px 20px;
-    background-color: #007acc;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: #005f99;
-  }
-
-  #response {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #e0f0ff;
-    border-radius: 10px;
-    font-size: 18px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-</style>
-
+    <meta charset="UTF-8">
+    <title>InfoBot - 10 000 Questions-Réponses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        img.logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        .qa {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        .question {
+            font-weight: bold;
+        }
+        .reponse {
+            margin-top: 5px;
+        }
+        audio {
+            margin-top: 5px;
+            display: block;
+        }
+    </style>
+</head>
 <body>
-  <h1>🤖 Ma Mini IA</h1>
-  <p>Pose-moi une question !</p>
-  <input type="text" id="question" placeholder="Ex : Qui est le président de la France ?" size="50" />
-  <button onclick="repondre()">Envoyer</button>
-  <div id="reponse"></div>
+    <img src="../image/istockphoto-1492548051-1024x1024.jpg" alt="Logo" class="logo">
+    <h1>InfoBot - 10 000 Questions-Réponses</h1>
 
-  <script>
-    const baseDeConnaissances = {
-      "2 + 2": "4",
-      "2+2": "4",
-      "bonjour": "Salut ! Comment puis-je t'aider ?",
-      "qui est le président de la france": "Emmanuel Macron",
-      "quelle est la capitale du sénégal": "Dakar",
-      "où est l'afrique": "En face de Madagascar, sur le continent africain.",
-      "qui est le président de madagascar": "Andry Rajoelina",
-      "parle moi en anglais": "Hello! How are you?",
-      "parle moi en espagnol": "¡Hola! ¿Cómo estás?",
-      "parle moi en chinois": "你好！你好吗？",
-      "parle moi en allemand": "Hallo! Wie geht's?",
-      "c'est quoi la svt": "C'est la science de la vie et de la Terre, comme les plantes, les animaux, les volcans...",
-      "c'est quoi la géographie": "C’est l’étude des pays, des continents, des villes et des paysages.",
-      "c'est quoi l'histoire": "C’est l’étude du passé des humains, des civilisations et des événements."
-    };
+    <!-- Exemple de 3 questions, répéter jusqu'à 10 000 -->
+    <div class="qa">
+        <div class="question">Question 1 : Quelle est la capitale du pays 1 ?</div>
+        <div class="reponse">Réponse 1 : Capitale 1</div>
+        <audio controls>
+            <source src="../audio/voice.mp3" type="audio/mpeg">
+            Votre navigateur ne supporte pas l'audio.
+        </audio>
+    </div>
 
-    function repondre() {
-  const question = document.getElementById("question").value.toLowerCase().trim();
-  const reponse = baseDeConnaissances[question];
-  const message = reponse || "Je ne connais pas encore cette réponse. Tu peux m'apprendre ?";
-  document.getElementById("reponse").innerText = message;
+    <div class="qa">
+        <div class="question">Question 2 : Quelle est la capitale du pays 2 ?</div>
+        <div class="reponse">Réponse 2 : Capitale 2</div>
+        <audio controls>
+            <source src="../audio/voice.mp3" type="audio/mpeg">
+            Votre navigateur ne supporte pas l'audio.
+        </audio>
+    </div>
 
-  // Faire parler la réponse
-  const synthese = window.speechSynthesis;
-  const utterance = new SpeechSynthesisUtterance(message);
-  utterance.lang = "fr-FR";
-  synthese.speak(utterance);
-}
+    <div class="qa">
+        <div class="question">Question 3 : Quelle est la capitale du pays 3 ?</div>
+        <div class="reponse">Réponse 3 : Capitale 3</div>
+        <audio controls>
+            <source src="../audio/voice.mp3" type="audio/mpeg">
+            Votre navigateur ne supporte pas l'audio.
+        </audio>
+    </div>
 
-    }
-  </script>
-</body><button onclick="testerVoix()">Tester la voix</button>
-
-<script>
-  function testerVoix() {
-    const phrase = new SpeechSynthesisUtterance("Bonjour, je suis InfoBot !");
-    phrase.lang = "fr-FR";
-    window.speechSynthesis.speak(phrase);
-  }
-</script>
-
+    <!-- ... Répéter jusqu'à 10 000 -->
+</body>
 </html>
-// Faire parler la réponse
-const synthese = window.speechSynthesis;
-const utterance = new SpeechSynthesisUtterance(reponse || "Je ne connais pas encore cette réponse. Tu peux m'apprendre ?");
-utterance.lang = "fr-FR"; // français
-synthese.speak(utterance);
+
