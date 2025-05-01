@@ -50,7 +50,16 @@
 
     }
   </script>
-</body>
+</body><button onclick="testerVoix()">Tester la voix</button>
+
+<script>
+  function testerVoix() {
+    const phrase = new SpeechSynthesisUtterance("Bonjour, je suis InfoBot !");
+    phrase.lang = "fr-FR";
+    window.speechSynthesis.speak(phrase);
+  }
+</script>
+
 </html>
 // Faire parler la réponse
 const synthese = window.speechSynthesis;
