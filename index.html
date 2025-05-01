@@ -36,9 +36,18 @@
     };
 
     function repondre() {
-      const question = document.getElementById("question").value.toLowerCase().trim();
-      const reponse = baseDeConnaissances[question];
-      document.getElementById("reponse").innerText = reponse || "Je ne connais pas encore cette réponse. Tu peux m'apprendre ?";
+  const question = document.getElementById("question").value.toLowerCase().trim();
+  const reponse = baseDeConnaissances[question];
+  const message = reponse || "Je ne connais pas encore cette réponse. Tu peux m'apprendre ?";
+  document.getElementById("reponse").innerText = message;
+
+  // Faire parler la réponse
+  const synthese = window.speechSynthesis;
+  const utterance = new SpeechSynthesisUtterance(message);
+  utterance.lang = "fr-FR";
+  synthese.speak(utterance);
+}
+
     }
   </script>
 </body>
